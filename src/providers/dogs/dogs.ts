@@ -2,7 +2,7 @@ import type { ActionWithPayload } from '@/helpers/store/ActionWithPayload';
 import type { Store } from '@/helpers/store/Store';
 import axios from 'axios';
 
-interface InitValues {
+export interface InitValues {
   dogs: string[];
   loading: boolean;
   error: string;
