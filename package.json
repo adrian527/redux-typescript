@@ -110,5 +110,10 @@
   "copyright": "2013",
   "target": "web",
   "title": "Typescript Webpack Boilerplate",
-  "url": "URL"
+  "url": "URL",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "redux": "^5.0.1",
+    "redux-thunk": "^3.1.0"
+  }
 }
