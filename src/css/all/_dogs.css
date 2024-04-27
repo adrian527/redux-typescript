@@ -1,0 +1,22 @@
+.dogs-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  margin: 0 auto;
+}
+
+.dogs-gallery > img {
+  display: block;
+  width: 400px;
+  height: 400px;
+  border: 2px solid grey;
+  border-radius: 15px;
+}
+
+.dogs-gallery > img:hover {
+  cursor: pointer;
+  filter: brightness(1.3);
+}

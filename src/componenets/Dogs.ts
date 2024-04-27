@@ -13,13 +13,16 @@ class Dogs implements Subscriber {
     const root = document.getElementById('root'); // Get root element.
     if (root) {
       const { dogs, error, loading } = (data as { dogs: InitValues }).dogs;
+      const dogsImages = dogs
+        .map((dog) => `<img src='${dog}' alt='${dog} dog'>`)
+        .join('');
 
       if (loading) {
         root.innerHTML = '<p>Loading</p>';
       } else if (error) {
         root.innerHTML = `<p>${error}</p>`;
       } else {
-        root.innerHTML = `<p><img src='${dogs[0]}' alt='dog image'></p>`;
+        root.innerHTML = `<div class="dogs-gallery">${dogsImages}</div>`;
       }
     }
   };

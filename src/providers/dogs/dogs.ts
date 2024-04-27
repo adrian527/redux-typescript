@@ -65,7 +65,7 @@ class DogsProvider {
       try {
         dispatch(this.fetchPostRequest());
         const resp = (
-          await axios.get('https://dog.ceo/api/breeds/image/random')
+          await axios.get('https://dog.ceo/api/breeds/image/random/8')
         ).data.message;
         dispatch(this.fetchPostSuccessRequest(resp));
       } catch (err: unknown) {
@@ -102,7 +102,7 @@ class DogsProvider {
       case this.REQUEST_SUCCESS:
         return {
           ...state,
-          dogs: [...state.dogs, action?.payload || ''],
+          dogs: [...state.dogs, ...(action?.payload || [])],
           loading: false,
           error: '',
         };
