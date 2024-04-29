@@ -5,6 +5,8 @@ import DogsProvider from './providers/dogs/dogs';
 import SubscriberList from './providers/store/subscriberList';
 import Dogs from './componenets/dogs/Dogs';
 import Header from './componenets/dogs/Header';
+import Buttons from './componenets/dogs/Buttons';
+import type { Store } from './helpers/store/Store';
 /**
  * Will find #root element and set HTML to "Hello World!".
  */
@@ -29,7 +31,10 @@ function editDom(): void {
     subscribersList.addSubscriber(dogsPresentation);
     subscribersList.addSubscriber(dogsHeader);
 
-    dogs.fetchDogsAction(store.getStore());
+    dogs.fetchDogsAction(store.getStore(), 6);
+    if (store.getStore()) {
+      new Buttons(store.getStore() as Store, dogs);
+    }
   }
 }
 

@@ -60,12 +60,14 @@ class DogsProvider {
 
   // action to make a request
 
-  private fetchDogs(): (dispatch: (arg: unknown) => void) => Promise<void> {
+  private fetchDogs(
+    nr: number,
+  ): (dispatch: (arg: unknown) => void) => Promise<void> {
     return async (dispatch: (arg: unknown) => void) => {
       try {
         dispatch(this.fetchPostRequest());
         const resp = (
-          await axios.get('https://dog.ceo/api/breeds/image/random/8')
+          await axios.get(`https://dog.ceo/api/breeds/image/random/${nr}`)
         ).data.message;
         dispatch(this.fetchPostSuccessRequest(resp));
       } catch (err: unknown) {
@@ -74,9 +76,9 @@ class DogsProvider {
     };
   }
 
-  public fetchDogsAction(store: Store | undefined): void {
+  public fetchDogsAction(store: Store | undefined, nr: number): void {
     if (store) {
-      store.dispatch(this.fetchDogs());
+      store.dispatch(this.fetchDogs(nr));
     }
   }
 
